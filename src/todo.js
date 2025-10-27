@@ -1,4 +1,4 @@
-export class todo {
+export class Todo {
     text;
     
     constructor(text) {
