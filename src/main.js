@@ -2,23 +2,28 @@ import "./style.css";
 import { Todo } from "./todo";
 import { createHtml } from "./utils";
 
-const handleClick = () => {
-    const newTodo = new Todo("text");
-    myList.push(newTodo);
-    createHtml(myList);
-}
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const text = document.getElementById("myInput").value;
+  const newTodo = new Todo(text);
+  myList.push(newTodo);
+  createHtml(myList);
+};
 
 const myList = [
-    new Todo("to do-lista i JS"),
-    new Todo("gruppuppgift i UX"),
-    new Todo("JS-övningar"),
-    new Todo("Träna mer!!")
-]
+  new Todo("to do-lista i JS"),
+  new Todo("gruppuppgift i UX"),
+  new Todo("JS-övningar"),
+  new Todo("Träna mer!!"),
+];
 
 createHtml(myList);
 
-const divInput = document.getElementById("buttonClick");
-if(divInput !== null) {
-  divInput.addEventListener("click", handleClick);
+const form = document.getElementById("writeList");
+if (form !== null) {
+  form.addEventListener("submit", handleSubmit);
 }
 
+const input = document.getElementById("myInput");
+
+input.innerHTML = localStorage.getItem("input");
