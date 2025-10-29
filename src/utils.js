@@ -11,8 +11,8 @@ export const createHtml = (myList) => {
     li.className = "listItem";
     li.innerHTML = todo.text;
     li.addEventListener("click", () => {
-        li.splice(i, 1);
-        createHtml();
+        myList.splice(i, 1);
+        createHtml(myList);
     });
 
     ulElement.appendChild(li);
