@@ -1,7 +1,9 @@
 export class Todo {
-    text;
-    
-    constructor(text) {
-        this.text = text;
-    }
+  text;
+  done;
+
+  constructor(text) {
+    this.text = text;
+    this.done = false;
+  }
 }
