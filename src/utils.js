@@ -10,15 +10,15 @@ export const createHtml = (myList) => {
     li.className = "listItem";
     li.innerHTML = todo.text;
 
-    if (todo.done) {
-      li.style.textDecoration = "line-through";
-    }
-
     li.addEventListener("click", () => {
       todo.done = !todo.done;
       localStorage.setItem("ToDo", JSON.stringify(myList));
       createHtml(myList);
     });
+
+    if (todo.done) {
+      li.className = "done";
+    }
 
     ulElement.appendChild(li);
   });

@@ -32,3 +32,17 @@ if (storedList) {
 }
 
 createHtml(myList);
+
+const sortButton = document.getElementById("sortButton");
+
+if (sortButton) {
+  sortButton.addEventListener("click", () => {
+    myList.sort((a, b) =>
+      a.text.localeCompare(b.text, "sv", { sensitivity: "base" })
+    );
+
+    localStorage.setItem("ToDo", JSON.stringify(myList));
+
+    createHtml(myList);
+  });
+}
