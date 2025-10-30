@@ -12,6 +12,7 @@ export const createHtml = (myList) => {
     li.innerHTML = todo.text;
     li.addEventListener("click", () => {
       myList.splice(i, 1);
+      localStorage.setItem("ToDo", JSON.stringify(myList));
       createHtml(myList);
     });
 
