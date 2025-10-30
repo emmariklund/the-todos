@@ -2,13 +2,22 @@ export const createHtml = (myList) => {
   const ulElement = document.getElementById("toDoList");
   ulElement.innerHTML = "";
 
-  console.log(myList);
+  //console.log(myList);
   myList.forEach((todo, i) => {
-    console.log(todo);
-
+    // console.log(todo);
     const li = document.createElement("li");
-    li.className = "listItem";
+    li.className = "listItem list-group-item list-group-item-warning";
     li.innerHTML = todo.text;
+
+    const deleteIcon = document.createElement("i");
+    deleteIcon.className = "fa-solid fa-trash delete-icon";
+
+    deleteIcon.addEventListener("click", (event) => {
+      event.stopPropagation();
+      myList.splice(i, 1);
+      localStorage.setItem("ToDo", JSON.stringify(myList));
+      createHtml(myList);
+    });
 
     li.addEventListener("click", () => {
       todo.done = !todo.done;
@@ -20,6 +29,7 @@ export const createHtml = (myList) => {
       li.className = "done";
     }
 
+    li.appendChild(deleteIcon);
     ulElement.appendChild(li);
   });
 };

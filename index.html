@@ -11,22 +11,38 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
     <div id="app">
       <h1>Veckans Att göra-lista</h1>
       <br /><br />
       <div id="textInput">
-        <form id="writeList">
-          <input type="text" id="myInput" placeholder="Skriv din text här..." />
-          <button type="submit" id="buttonClick" class="btn btn-warning">
-            Lägg till i listan
-          </button>
+        <form id="writeList" class="row g-2">
+          <div class="col-auto">
+            <label for="myInput" class="visually-hidden"
+              >Skriv din text här...</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="myInput"
+              placeholder="Skriv din text här..."
+            />
+          </div>
+          <div class="col-auto">
+            <button type="submit" id="buttonClick" class="btn btn-warning mb-3">
+              Lägg till i listan
+            </button>
+          </div>
         </form>
       </div>
-      <ul id="toDoList"></ul>
+      <ul id="toDoList" class="list-group"></ul>
       <br />
-      <button id="sortButton" class="btn btn-light">Sortera</button>
+      <button id="sortButton" class="btn btn-light">Sortera A-Ö</button>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
