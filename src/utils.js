@@ -7,7 +7,20 @@ export const createHtml = (myList) => {
     // console.log(todo);
     const li = document.createElement("li");
     li.className = "listItem list-group-item";
+
+    if (todo.done) {
+      li.classList.add("list-group-item-success", "done");
+    } else {
+      li.classList.add("list-group-item-warning");
+    }
+
     li.innerHTML = todo.text;
+
+    li.addEventListener("click", () => {
+      todo.done = !todo.done;
+      localStorage.setItem("ToDo", JSON.stringify(myList));
+      createHtml(myList);
+    });
 
     const deleteIcon = document.createElement("i");
     deleteIcon.className = "fa-solid fa-trash delete-icon";
@@ -18,16 +31,6 @@ export const createHtml = (myList) => {
       localStorage.setItem("ToDo", JSON.stringify(myList));
       createHtml(myList);
     });
-
-    li.addEventListener("click", () => {
-      todo.done = !todo.done;
-      localStorage.setItem("ToDo", JSON.stringify(myList));
-      createHtml(myList);
-    });
-
-    if (todo.done) {
-      li.className = "done";
-    }
 
     li.appendChild(deleteIcon);
     ulElement.appendChild(li);
