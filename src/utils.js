@@ -2,16 +2,14 @@ export const createHtml = (myList) => {
   const ulElement = document.getElementById("toDoList");
   ulElement.innerHTML = "";
 
-  //console.log(myList);
   myList.forEach((todo, i) => {
-    // console.log(todo);
     const li = document.createElement("li");
-    li.className = "listItem list-group-item";
+    li.className =
+      "listItem list-group-item list-group-item-warning list-group-item-action";
 
     if (todo.done) {
+      li.classList.remove("list-group-item-warning");
       li.classList.add("list-group-item-success", "done");
-    } else {
-      li.classList.add("list-group-item-warning");
     }
 
     li.innerHTML = todo.text;
