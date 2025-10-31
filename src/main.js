@@ -4,11 +4,17 @@ import { createHtml } from "./utils";
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  const text = document.getElementById("myInput").value;
+  const input = document.getElementById("myInput");
+  const text = input.value.trim();
+
+  if (text === "") return;
+
   const newTodo = new Todo(text);
   myList.push(newTodo);
   localStorage.setItem("ToDo", JSON.stringify(myList));
   createHtml(myList);
+
+  input.value = "";
 };
 
 const form = document.getElementById("writeList");

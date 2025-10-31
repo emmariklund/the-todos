@@ -6,7 +6,7 @@ export const createHtml = (myList) => {
   myList.forEach((todo, i) => {
     // console.log(todo);
     const li = document.createElement("li");
-    li.className = "listItem list-group-item list-group-item-warning";
+    li.className = "listItem list-group-item";
     li.innerHTML = todo.text;
 
     const deleteIcon = document.createElement("i");

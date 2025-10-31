@@ -84,7 +84,8 @@ button:focus-visible {
 
 li {
   text-align: left;
-  margin-top: 20px;
+  padding: 60px;
+  /*margin-top: 20px;*/
 }
 
 #writeList {
