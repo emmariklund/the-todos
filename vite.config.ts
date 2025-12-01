@@ -1,3 +1,3 @@
 export default {
-    base: "/the-todos/",
+    base: "/the-todos",
 };
